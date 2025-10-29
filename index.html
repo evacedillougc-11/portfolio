@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Cedillo - Marketing Virtual Assistant & Content Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .hero .tagline {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #2c3e50;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+            font-size: 1.1em;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .about-content h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            color: #555;
+        }
+        
+        .service-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Para cuando agregues videos reales */
+        .portfolio-video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        
+        .portfolio-content {
+            padding: 25px;
+        }
+        
+        .portfolio-content h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .portfolio-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            background: #ecf0f1;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        
+        .contact-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 8px 0;
+            color: #555;
+        }
+        
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .value-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .value-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .value-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Eva Cedillo</h1>
+        <div class="subtitle">Marketing Virtual Assistant & Content Strategist</div>
+        <div class="tagline">
+            Empowering brands through strategic marketing support, social media management, 
+            and authentic content creation. Bilingual professional with a unique blend of marketing creativity 
+            and financial analytics expertise.
+        </div>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Let's Connect</a>
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Marketing Support Expert with Data-Driven Mindset</p>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Your Strategic Marketing Partner</h3>
+                    <p>I'm a bilingual Marketing Virtual Assistant who brings a unique advantage to the table: 5+ years of experience in accounting, finance, and HR operations combined with a passion for digital marketing and content creation.</p>
+                    
+                    <p>This background means I don't just create content—I understand ROI, budget management, data analysis, and the importance of strategic planning. I help businesses streamline their marketing operations while maintaining brand consistency and driving measurable results.</p>
+                    
+                    <p>Whether you need someone to manage your social media presence, coordinate marketing campaigns, analyze performance metrics, or create engaging UGC content, I provide comprehensive support that connects creativity with business intelligence.</p>
+                    
+                    <p><strong>My approach:</strong> Organized, detail-oriented, and always focused on helping your brand grow efficiently.</p>
+                </div>
+                
+                <div>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Remote Ready</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" style="margin-top: 20px;">
+                        <h4>🎯 What Sets Me Apart</h4>
+                        <ul>
+                            <li>✓ Bilingual: Spanish & English (written & verbal)</li>
+                            <li>✓ Finance background = budget-conscious strategies</li>
+                            <li>✓ Analytical mindset for data-driven decisions</li>
+                            <li>✓ US work experience & cultural understanding</li>
+                            <li>✓ Highly organized with strong attention to detail</li>
+                            <li>✓ Self-motivated and deadline-oriented</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Props -->
+        <section class="section">
+            <h2 class="section-title">Why Work With Me?</h2>
+            <p class="section-subtitle">The benefits of having me on your team</p>
+            
+            <div class="value-props">
+                <div class="value-card">
+                    <div class="icon">📊</div>
+                    <h4>Data-Driven Approach</h4>
+                    <p>My finance background means every marketing decision is backed by metrics, ROI analysis, and strategic thinking.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🌎</div>
+                    <h4>Bilingual Communication</h4>
+                    <p>Fluent in Spanish and English, I can help you reach broader audiences and manage multilingual campaigns.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">⚡</div>
+                    <h4>Quick Learner</h4>
+                    <p>Adaptable and tech-savvy, I master new tools and platforms quickly to support your evolving needs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="icon">🎯</div>
+                    <h4>Results-Focused</h4>
+                    <p>Not just task completion—I focus on outcomes that drive engagement, conversions, and business growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <h2 class="section-title">Services I Offer</h2>
+            <p class="section-subtitle">Comprehensive Marketing Support for Your Business</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Social Media Management</h3>
+                    <ul>
+                        <li>Content calendar creation & planning</li>
+                        <li>Post scheduling across platforms</li>
+                        <li>Community management & engagement</li>
+                        <li>Response handling & inbox monitoring</li>
+                        <li>Hashtag research & optimization</li>
+                        <li>Platform management (Instagram, TikTok, Facebook, LinkedIn)</li>
+                        <li>Performance tracking & reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Marketing Operations & Admin</h3>
+                    <ul>
+                        <li>Email marketing campaign setup</li>
+                        <li>CRM data entry & management</li>
+                        <li>Marketing analytics & reporting</li>
+                        <li>Market research & competitor analysis</li>
+                        <li>Campaign coordination & project management</li>
+                        <li>Budget tracking & expense reports</li>
+                        <li>Administrative support tasks</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Content Strategy & Creation</h3>
+                    <ul>
+                        <li>Content planning & strategy development</li>
+                        <li>Copywriting for social media & ads</li>
+                        <li>Blog post coordination & editing</li>
+                        <li>Newsletter creation & management</li>
+                        <li>Brand voice consistency</li>
+                        <li>SEO-friendly content optimization</li>
+                        <li>Content performance analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>UGC Content Production</h3>
+                    <ul>
+                        <li>Authentic video content (15-60 sec)</li>
+                        <li>Product photography & lifestyle shots</li>
+                        <li>Unboxing & tutorial videos</li>
+                        <li>Testimonials & review-style content</li>
+                        <li>Trend integration & viral formats</li>
+                        <li>Script writing & storyboarding</li>
+                        <li>Video editing & post-production</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section">
+            <h2 class="section-title">Content Portfolio</h2>
+            <p class="section-subtitle">Sample Work & Case Studies</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        🧴
+                        <!-- REPLACE WITH: <video class="portfolio-video" controls poster="thumbnail.jpg">
+                            <source src="nivea-video.mp4" type="video/mp4">
+                        </video> -->
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Nivea Ecuador - Skincare Campaign</h4>
+                        <p>Created engaging "dupe" comparison video showcasing product benefits and affordability. Strategy focused on authenticity and relatability to drive purchase intent.</p>
+                        <span class="portfolio-tag">Skincare</span>
+                        <span class="portfolio-tag">Video UGC</span>
+                        <span class="portfolio-tag">TikTok</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        💄
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Catrice Cosmetics - Makeup Tutorial</h4>
+                        <p>Developed trend-based makeup application content with emotional storytelling approach. Result: High engagement through authentic connection with target audience.</p>
+                        <span class="portfolio-tag">Makeup</span>
+                        <span class="portfolio-tag">Tutorial</span>
+                        <span class="portfolio-tag">Storytelling</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        👗
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Renay - Fashion Content Strategy</h4>
+                        <p>Multi-format content series optimized for Instagram Stories and Reels. Demonstrated product versatility through dynamic layouts and trend integration.</p>
+                        <span class="portfolio-tag">Fashion</span>
+                        <span class="portfolio-tag">Multi-format</span>
+                        <span class="portfolio-tag">Instagram</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        ✈️
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Rooftop Cinema Club - Experience Marketing</h4>
+                        <p>Personal recommendation content with professional voiceover showcasing venue atmosphere and unique selling points for tourism marketing.</p>
+                        <span class="portfolio-tag">Travel & Hospitality</span>
+                        <span class="portfolio-tag">Voice Over</span>
+                        <span class="portfolio-tag">Review</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        🎥
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Ingoude Company - Educational Content</h4>
+                        <p>Long-form instructional video demonstrating product usage. Focus on clear communication and step-by-step guidance for customer education.</p>
+                        <span class="portfolio-tag">Tutorial</span>
+                        <span class="portfolio-tag">Food & Beverage</span>
+                        <span class="portfolio-tag">Educational</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        📍
+                    </div>
+                    <div class="portfolio-content">
+                        <h4>Location-Based Marketing - Cuenca</h4>
+                        <p>Viral location testing series with authentic reactions and ratings. Strategy designed to boost local tourism and drive foot traffic.</p>
+                        <span class="portfolio-tag">Travel Marketing</span>
+                        <span class="portfolio-tag">Local SEO</span>
+                        <span class="portfolio-tag">Engagement</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px;">
+                <p style="font-size: 1.1em; color: #555;">
+                    💡 <strong>Note:</strong> Video demos and full portfolio samples available upon request. 
+                    I'm happy to create custom sample content specific to your brand and needs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Tools & Expertise</h2>
+            <p class="section-subtitle">Technical skills that drive results</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Social Media & Marketing</h4>
+                    <ul>
+                        <li>Instagram, TikTok, Facebook, LinkedIn</li>
+                        <li>Content Scheduling (Later, Buffer, Hootsuite)</li>
+                        <li>Canva Pro for design</li>
+                        <li>Basic Google Analytics</li>
+                        <li>Email Marketing (Mailchimp basics)</li>
+                        <li>Social media analytics tools</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Content Creation</h4>
+                    <ul>
+                        <li>Video Editing (CapCut, InShot)</li>
+                        <li>Photo Editing (Canva, Lightroom mobile)</li>
+                        <li>Copywriting & storytelling</li>
+                        <li>Trend research & adaptation</li>
+                        <li>Script writing</li>
+                        <li>Visual content strategy</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Admin & Organization</h4>
+                    <ul>
+                        <li>Microsoft Excel (Advanced formulas, pivot tables)</li>
+                        <li>Google Workspace (Docs, Sheets, Drive)</li>
+                        <li>Project management tools (Trello, Asana basics)</li>
+                        <li>Data entry & database management</li>
+                        <li>Report generation & analysis</li>
+                        <li>Calendar & schedule management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Core Competencies</h4>
+                    <ul>
+                        <li>Financial analysis & budgeting</li>
+                        <li>Time management & prioritization</li>
+                        <li>Client communication</li>
+                        <li>Problem-solving & adaptability</li>
+                        <li>Research & competitive analysis</li>
+                        <li>Bilingual communication (ES/EN)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="contact-section">
+                <h2>Let's Collaborate!</h2>
+                <p style="font-size: 1.2em; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Ready to streamline your marketing operations and elevate your content strategy? 
+                    I'd love to discuss how I can support your business goals.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:ecedillo2000@gmail.com">ecedillo2000@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="https://wa.me/12393807038">+1 (239) 380-7038</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📸</span>
+                        <a href="#">@emarcevi_11</a>
+                    </div>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="mailto:ecedillo2000@gmail.com" class="btn btn-primary" style="background: white; color: #667eea; margin-right: 15px;">
+                        Send Email
+                    </a>
+                    <a href="https://wa.me/12393807038" class="btn btn-secondary">
+                        WhatsApp Me
+                    </a>
+                </div>
+                <p style="margin-top: 30px; font-size: 0.95em; opacity: 0.9;">
+                    Available for freelance projects, part-time, or full-time remote positions
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
